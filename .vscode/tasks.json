@@ -1,0 +1,23 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "run 'odin build src'",
+      "command": "odin",
+      // "command": "/bin/ls",
+      "args": [
+        "build",
+        "src",
+        "-debug",
+        "-out:output"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
