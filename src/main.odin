@@ -80,9 +80,9 @@ main :: proc() {
 
 		BeginDrawing()
 			ClearBackground(LIGHTGRAY)
-
+			
 			BeginMode2D(camera)
-				for ei in envItems { DrawRectangleRec(ei.rect, ei.color) }
+			for ei in envItems { DrawRectangleRec(ei.rect, ei.color) }
 
 				playerRect: Rectangle = {player.position.x - 20, player.position.y - 40, 40, 40}
 				DrawRectangleRec(playerRect, RED)
@@ -148,10 +148,11 @@ UpdateCameraCenter :: proc(camera: ^rl.Camera2D, player: ^Player, envItems: ^[]E
 	camera.target = player.position
 }
 UpdateCameraCenterInsideMap :: proc(camera: ^rl.Camera2D, player: ^Player, envItems: ^[]EnvItem, delta: f32, screenWidth: f32, screenHeight: f32) {
-
+	camera.offset = { screenWidth/2, screenHeight/2 }
+	camera.target = player.position
 }
 UpdateCameraCenterSmoothFollow :: proc(camera: ^rl.Camera2D, player: ^Player, envItems: ^[]EnvItem, delta: f32, screenWidth: f32, screenHeight: f32) {
-
+	
 }
 UpdateCameraEvenOutOnLanding :: proc(camera: ^rl.Camera2D, player: ^Player, envItems: ^[]EnvItem, delta: f32, screenWidth: f32, screenHeight: f32) {
 
